@@ -11,7 +11,7 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
 
     this.on('end', function () {
       if (!this.options['skip-install']) {
-        this.installDependencies();
+        // this.installDependencies();
       }
     });
   },
@@ -57,7 +57,7 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.adType = props.adType;
       this.adDestinationFolder = props.adDestinationFolder;
-      console.log('ad type : ' + this.adType + " Destination folder: "+ this.adDestinationFolder);
+      // console.log('ad type : ' + this.adType + " Destination folder: "+ this.adDestinationFolder);
 
       done();
     }.bind(this));
@@ -65,16 +65,15 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
 
   app: function () {
     console.log('@-- app section ---');
-    this.copy('in-page/_index.html','index.html');
-    this.copy('in-page/main.css','main.css');
-    this.copy('in-page/main.js','main.js');
-
-    /*this.mkdir('app');
-    this.mkdir('app/templates');
-
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
-    */
+    if (this.adDestinationFolder.trim() != "") {
+            this.copy('in-page/_index.html', this.adDestinationFolder + '/index.html');
+            this.copy('in-page/main.css', this.adDestinationFolder + '/main.css');
+            this.copy('in-page/main.js', this.adDestinationFolder + '/main.js');
+            } else {
+            this.copy('in-page/_index.html','index.html');
+            this.copy('in-page/main.css','main.css');
+            this.copy('in-page/main.js','main.js');
+        }
     },
 
   projectfiles: function () {
