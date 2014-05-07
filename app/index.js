@@ -33,7 +33,7 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
       name: 'adType', // variable
       message: promptMessage,
       choices:[
-            { name:"In-page (300x250)", value:1 },
+            { name:"InPage_Dynamic-300x250 (300x250)", value:1 },
             { name:"Expanding", value:2 },
             { name:"Floating", value: 3},
             { name:"Standard Video Module", value:4 },
@@ -64,25 +64,6 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
-  /*
-  app: function () {
-    console.log('@-- app section --- ');
-    console.log(this.indexFile);
-    if (this.adDestinationFolder.trim() != "") {
-           // this.copy('in-page/_index.html', this.adDestinationFolder + '/index.html');
-            this.copy(this.indexFile, this.adDestinationFolder + '/index.html');
-            this.copy('in-page/main.css', this.adDestinationFolder + '/main.css');
-            this.copy('in-page/main.js', this.adDestinationFolder + '/main.js');
-            } else {
-            // this.copy('in-page/_index.html','index.html');
-             this.copy(this.indexFile,'index.html');
-            this.copy('in-page/main.css','main.css');
-            this.copy('in-page/main.js','main.js');
-        }
-    },
-
-
-*/
   writing : function () {
     this.generateAdByID(this.adType);
     console.log(chalk.yellow('--- Boilerplate created ---'));
@@ -92,25 +73,34 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
       switch (iType) {
           case 1:
             if (this.adDestinationFolder.trim() != "") {
-                    this.copy('in-page/_index.html', this.adDestinationFolder + '/index.html');
-                    this.copy('in-page/main.css', this.adDestinationFolder + '/main.css');
-                    this.copy('in-page/main.js', this.adDestinationFolder + '/main.js');
+                    this.copy('InPage_Dynamic-300x250/creative.html', this.adDestinationFolder + '/creative.html');
+                    this.copy('InPage_Dynamic-300x250/initial.css', this.adDestinationFolder + '/initial.css');
+                    this.copy('InPage_Dynamic-300x250/initial.js', this.adDestinationFolder + '/initial.js');
+                    this.copy('InPage_Dynamic-300x250/polite.js', this.adDestinationFolder + '/polite.js');
+                    this.copy('InPage_Dynamic-300x250/polite.css', this.adDestinationFolder + '/polite.css');
                 } else {
-                    this.copy('in-page/_index.html','index.html');
-                    this.copy('in-page/main.css','main.css');
-                    this.copy('in-page/main.js','main.js');
+                    this.copy('InPage_Dynamic-300x250/creative.html', 'creative.html');
+                    this.copy('InPage_Dynamic-300x250/initial.css','initial.css');
+                    this.copy('InPage_Dynamic-300x250/initial.js', 'initial.js');
+                    this.copy('InPage_Dynamic-300x250/polite.js', 'polite.js');
+                    this.copy('InPage_Dynamic-300x250/polite.css','polite.css');
+
             }
-              break;
+             break;
 
          case 3:
             if (this.adDestinationFolder.trim() != "") {
-                    this.copy('in-page/_index.html', this.adDestinationFolder + '/index.html');
-                    this.copy('in-page/main.css', this.adDestinationFolder + '/main.css');
-                    this.copy('in-page/main.js', this.adDestinationFolder + '/main.js');
+                    this.copy('Floating_320x50/anchor.html', this.adDestinationFolder + '/anchor.html');
+                    this.copy('Floating_320x50/anchor.css', this.adDestinationFolder + '/anchor.css');
+                    this.copy('Floating_320x50/anchor.js', this.adDestinationFolder + '/anchor.js');
+                    this.copy('Floating_320x50/closebutton.png', this.adDestinationFolder + '/closebutton.png');
+                    this.copy('Floating_320x50/collapsed.jpg', this.adDestinationFolder + '/collapsed.jpg');
                 } else {
-                    this.copy('in-page/_index.html','index.html');
-                    this.copy('in-page/main.css','main.css');
-                    this.copy('in-page/main.js','main.js');
+                    this.copy('Floating_320x50/anchor.html','anchor.html');
+                    this.copy('Floating_320x50/anchor.css','anchor.css');
+                    this.copy('Floating_320x50/anchor.js', 'anchor.js');
+                    this.copy('Floating_320x50/closebutton.png', 'closebutton.png');
+                    this.copy('Floating_320x50/collapsed.jpg', 'collapsed.jpg');
             }
               break;
 

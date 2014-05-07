@@ -27,7 +27,7 @@ dcrm.sendMessageToParent = function(message) {
 };
 
 dcrm.collapsedClick = function(event) {
-  Enabler.exit('Anchor click');
+  Enabler.exit('<%= adExitName %>');
 }
 
 dcrm.closeHandler = function(event) {
