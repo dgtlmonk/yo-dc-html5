@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="main.css" type="text/css" media="screen" charset="utf-8">
   <script type="text/javascript" src="http://s0.2mdn.net/879366/Enabler_01_30.js"></script>
   </head>
-    <body>
+  <body>
+
         <div id="container" class="container">
-           <h2>In-page Template</h2>
-            <div id="exitBtn" class="btn-exit">
-              Find More
+            <div id="inner" class="vcenter-inner">
+                <h2>In-page Template</h2>
+                <div id="exitBtn" class="btn-exit">
+                Find More
+                </div>
             </div>
         </div>
 
@@ -38,14 +41,14 @@
         // 2. Initial visual setup
         function adVisibleHandler(){            
           // element references
-          var exitBtn = document.querySelector('.btn-exit');
+          var exitBtn = document.querySelector('.btn-exiEt');
              exitBtn.addEventListener('click', onExitClick, false);
         }
 
         // 3. click handlers
         function onExitClick(){
-            console.log('exit clicked ...');
-            Enabler.exit('inpage_exit_clicked');
+            console.log('exit clicked ...' + <% adExitName %>);
+            Enabler.exit('<%= adExitName %>');
         }
      
         </script>
