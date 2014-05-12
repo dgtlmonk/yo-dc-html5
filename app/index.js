@@ -67,7 +67,7 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
       type: 'input',
       name: 'adExitName', // variable
       message:'Please type Exit name (optional): '
-     }/:
+     }
 
     ];
 
@@ -89,34 +89,34 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
 
   generateAdByID : function ( iType ) {
       switch (iType) {
-          case 1:
+          case 1: // In-page 320x250
             if (this.adDestinationFolder.trim() != "") {
-                    this.copy('In-page/creative.html', this.adDestinationFolder + '/creative.html');
-                    this.copy('In-page/initial.css', this.adDestinationFolder + '/initial.css');
-                    this.copy('In-page/initial.js', this.adDestinationFolder + '/initial.js');
-                    this.copy('In-page/polite.js', this.adDestinationFolder + '/polite.js');
-                    this.copy('In-page/polite.css', this.adDestinationFolder + '/polite.css');
+                    this.copy('In-page/300x250/DCM_Inpage-320x250.html', this.adDestinationFolder + '/DCM_Inpage-320x250.html');
+                    this.copy('In-page/300x250/initial.css', this.adDestinationFolder + '/initial.css');
+                    this.copy('In-page/300x250/initial.js', this.adDestinationFolder + '/initial.js');
+                    this.copy('In-page/300x250/polite.js', this.adDestinationFolder + '/polite.js');
+                    this.copy('In-page/300x250/polite.css', this.adDestinationFolder + '/polite.css');
                 } else {
-                    this.copy('In-page/creative.html', 'creative.html');
-                    this.copy('In-page/initial.css','initial.css');
-                    this.copy('In-page/initial.js', 'initial.js');
-                    this.copy('In-page/polite.js', 'polite.js');
-                    this.copy('In-page/polite.css','polite.css');
+                    this.copy('In-page/300x250/DCM_Inpage-320x250.html', 'DCM_Inpage-320x250.html');
+                    this.copy('In-page/300x250/initial.css','initial.css');
+                    this.copy('In-page/300x250/initial.js', 'initial.js');
+                    this.copy('In-page/300x250/polite.js', 'polite.js');
+                    this.copy('In-page/300x250/polite.css','polite.css');
 
             }
              break;
 
-         case 3:
+         case 3: // floating 320x50
             if (this.adDestinationFolder.trim() != "") {
-                    this.copy('Floating/320x50/anchor.html', this.adDestinationFolder + '/anchor.html');
-                    this.copy('Floating/320x50/anchor.css', this.adDestinationFolder + '/anchor.css');
-                    this.copy('Floating/320x50/anchor.js', this.adDestinationFolder + '/anchor.js');
+                    this.copy('Floating/320x50/DCM_Floating-320x50.html', this.adDestinationFolder + '/DCM_Floating-320x50.html');
+                    this.copy('Floating/320x50/DCM_Floating-320x50.css', this.adDestinationFolder + '/DCM_Floating-320x50.css');
+                    this.copy('Floating/320x50/DCM_Floating-320x50.js', this.adDestinationFolder + '/DCM_Floating-320x50.js');
                     this.copy('Floating/320x50/closebutton.png', this.adDestinationFolder + '/closebutton.png');
                     this.copy('Floating/320x50/collapsed.jpg', this.adDestinationFolder + '/collapsed.jpg');
                 } else {
-                    this.copy('Floating/320x50/anchor.html','anchor.html');
-                    this.copy('Floating/320x50/anchor.css','anchor.css');
-                    this.copy('Floating/320x50/anchor.js', 'anchor.js');
+                    this.copy('Floating/320x50/DCM_Floating-320x50.html','DCM_Floating-320x50.html');
+                    this.copy('Floating/320x50/DCM_Floating-320x50.css','DCM_Floating-320x50.css');
+                    this.copy('Floating/320x50/DCM_Floating-320x50.js', 'DCM_Floating-320x50.js');
                     this.copy('Floating/320x50/closebutton.png', 'closebutton.png');
                     this.copy('Floating/320x50/collapsed.jpg', 'collapsed.jpg');
             }
@@ -136,18 +136,4 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
   }
 });
 
-/*
-DcHtml5Generator.prototype.writeIndex = function writeIndex() {
-        console.log('writeIndex ---- ');
-       // TODO: add corresponding path to this.sourceRoot() + index.html
-        this.indexFile = this.readFileAsString(path.join(this.sourceRoot(), 'indexTmp.html'));
-        this.indexFile = this.engine(this.indexFile, this);
-        this.indexfile = this.appendFiles({
-            html: this.indexFile,
-            fileType:'js'
-
-        });
-}
-
-*/
 module.exports = DcHtml5Generator;
