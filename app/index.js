@@ -57,7 +57,15 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
             { name:"In-App", value:5 },
             { name:"Lightbox - Carousel", value:6 }
       ]
-    },
+    },/*
+    {
+        when: function (response){
+           return response.adType == 1; // ask for creative width
+        },
+        type: 'input',
+        name: 'adWidth',
+        message: 'Please type the creative ' + chalk.green('width in pixel (px)')
+    }, */
      {
       type: 'input',
       name: 'adDestinationFolder', // variable
