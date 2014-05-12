@@ -36,24 +36,10 @@ html, body {
 #background {
     width: 300px;
     height: 250px;
+    padding-top:100px;
+ 
 }
 
-#headline {
-    font-size: 20px;
-    top: 17px;
-    left: 15px;
-    font-weight: bold;
-    line-height: 26px
-}
-
-#subline {
-    color: #FFFFFF;
-    font-size: 20px;
-    top: 90px;
-    left: 15px;
-    width: 150px;
-    text-shadow: 1px 1px 0 #888;
-}
 
 #content.show {
     display: block;
@@ -73,7 +59,7 @@ html, body {
     bottom: 15px;
     cursor: pointer;
     padding: 1px 7px 0px 5px;
-    color: #FFFFFF;
+    color: #999;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -81,3 +67,15 @@ html, body {
     -moz-box-shadow: 0px 2px 1px 0px rgba(46, 45, 46, 1);
     box-shadow: 0px 2px 1px 0px rgba(46, 45, 46, 1);
 }
+
+.vcenter-inner {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.vcenter-outer {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
