@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css" type="text/css" media="screen" charset="utf-8">
+  <script type="text/javascript" src="http://s0.2mdn.net/879366/Enabler_01_30.js"></script>
+  </head>
+  <body>
+
+        <div id="container" class="container">
+            <div id="inner" class="vcenter-inner">
+                <h2>In-page Template</h2>
+                <div id="exitBtn" class="btn-exit">
+                Find More
+                </div>
+            </div>
+        </div>
+
+    <script type="text/javascript" charset="utf-8">
+             // 1. Setup Enabler
+            if (Enabler.isInitialized()) {
+                enablerInitHandler();
+             } else  {
+                Enabler.addEventListener(studio.events.StudioEvent.INIT, enablerInitHandler);
+            }
+    
+        function enablerInitHandler(e)  { 
+            console.log('studio is initialized ...');
+            if (!Enabler.isVisible()){
+                Enabler.addEventListener(studio.events.StudioEvent.VISIBLE, adVisibleHandler);
+            } else {
+                adVisibleHandler();
+            }
+        }
+
+
+        // 2. Initial visual setup
+        function adVisibleHandler(){            
+          // element references
+          var exitBtn = document.querySelector('.btn-exiEt');
+             exitBtn.addEventListener('click', onExitClick, false);
+        }
+
+        // 3. click handlers
+        function onExitClick(){
+            console.log('exit clicked ...' + <% adExitName %>);
+            Enabler.exit('<%= adExitName %>');
+        }
+     
+        </script>
+    </body>
+</html>

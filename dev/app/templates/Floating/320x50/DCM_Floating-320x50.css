@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/* Default style, feel free to remove if not needed. */
+body, body * {
+  vertical-align: baseline;
+  font-weight: inherit;
+  font-family: sans-serif;
+  font-style: inherit;
+  border: 0 none;
+  outline: 0;
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+/* Div layer for the footer. */
+#collapse-container {
+  display: block;
+  position: absolute;
+  width: 318px;
+  height: 48px;
+  top: 0px;
+  left: 50%;
+  margin-left: -160px;
+  background-color: transparent;
+  border: #000 solid 1px;
+  overflow: hidden;
+}
+
+/* Invisible button for collapsed panel background clickthrough. */
+#collapse-background-exit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 400;
+}
+
+/* container of the footer background */
+#collapse-background {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  background-image: url('collapsed.jpg');
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+}
+
+/* close button */
+#collapse-close-button {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 24px;
+  height: 24px;
+  background-image: url('closebutton.png'); 
+  background-size: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 900;
+}
