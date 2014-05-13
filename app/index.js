@@ -50,26 +50,38 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
       name: 'adType', // variable
       message: promptMessage,
       choices:[
-            { name:"In-Page (300x250)", value:1 },
+            { name:"In-Page", value:1 },
             { name:"Expanding", value:2 },
             { name:"Floating", value: 3},
             { name:"Standard Video Module", value:4 },
             { name:"In-App", value:5 },
             { name:"Lightbox - Carousel", value:6 }
       ]
-    },/*
+    },
     {
         when: function (response){
            return response.adType == 1; // ask for creative width
         },
+
         type: 'input',
         name: 'adWidth',
         message: 'Please type the creative ' + chalk.green('width in pixel (px)')
-    }, */
+
+    },
+    {
+        when: function (response){
+           return response.adType == 1; // ask for creative height
+        },
+
+        type: 'input',
+        name: 'adHeight',
+        message: 'Please type the creative ' + chalk.green('height in pixel (px)')
+
+    },
      {
       type: 'input',
       name: 'adDestinationFolder', // variable
-      message:'Please type destination folder: '
+      message:'Please type destination folder (optional): '
      },
      {
       type: 'input',
@@ -82,8 +94,11 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.adType = props.adType;
       this.adDestinationFolder = props.adDestinationFolder;
-      this.adExitName = props.adExitName;
-      this.testWidth = 200;
+      this.adExitName = props.adExitName == '' ? 'defaultCTAExit' : props.adExitName;
+      console.log(this.adExitName);
+      this.adWidth = props.adWidth;
+      this.adHeight = props.adHeight;
+
       // console.log('ad type : ' + this.adType + " Destination folder: "+ this.adDestinationFolder);
 
       done();
@@ -99,13 +114,14 @@ var DcHtml5Generator = yeoman.generators.Base.extend({
       switch (iType) {
           case 1: // In-page 320x250
             if (this.adDestinationFolder.trim() != "") {
-                    this.copy('In-page/300x250/DCM_Inpage-320x250.html', this.adDestinationFolder + '/DCM_Inpage-320x250.html');
+                    this.copy('In-page/300x250/DCM_Inpage-320x250.html', this.adDestinationFolder + '/DCM_Inpage-'+ this.adWidth + 'x' + this.adHeight + '.html');
                     this.copy('In-page/300x250/initial.css', this.adDestinationFolder + '/initial.css');
                     this.copy('In-page/300x250/initial.js', this.adDestinationFolder + '/initial.js');
                     this.copy('In-page/300x250/polite.js', this.adDestinationFolder + '/polite.js');
                     this.copy('In-page/300x250/polite.css', this.adDestinationFolder + '/polite.css');
                 } else {
-                    this.copy('In-page/300x250/DCM_Inpage-320x250.html', 'DCM_Inpage-320x250.html');
+                    this.copy('In-page/300x250/DCM_Inpage-320x250.html', 'DCM_Inpage-'+ this.adWidth + 'x' + this.adHeight + '.html');
+
                     this.copy('In-page/300x250/initial.css','initial.css');
                     this.copy('In-page/300x250/initial.js', 'initial.js');
                     this.copy('In-page/300x250/polite.js', 'polite.js');

@@ -9,22 +9,16 @@ creative.init = function () {
   } else {
     Enabler.addEventListener(
       studio.events.StudioEvent.INIT,
-      creative.enablerInitHandler);
-  }
-};
+       creative.enablerInitHandler);
+   }
+ };
 
 creative.setupDOMElements = function () {
   creative.domElements = {};
-  // creative.domElements.background = document.getElementById('background');
-  // creative.domElements.headline = document.getElementById('headline');
-  // creative.domElements.subline = document.getElementById('subline');
   creative.domElements.cta = document.getElementById('cta');
 };
 
 creative.enablerInitHandler = function (event) {
-
-  // creative.dynamicDataAvailable();
-
   creative.domElements.cta.addEventListener('click', creative.exitClickHandler);
 
   // Hide preloader and show creative as soon as dynamic data is available and displayed. Currently we wait for
@@ -41,7 +35,7 @@ creative.enablerInitHandler = function (event) {
 
 
 creative.exitClickHandler = function (event) {
-  Enabler.exit('<%= adExitName %>', creative.dynamicExitUrl);
+  Enabler.exit('<%= adExitName %>', 'http://google.com'); // change to reflect actual exit url
 };
 
 creative.pageLoadHandler = function (event) {
@@ -65,7 +59,7 @@ creative.pageLoadHandler = function (event) {
 // Is triggered when the background image in polite.js was fully loaded.
 creative.showAd = function () {
   // Show content.
-  document.getElementById('content').className = "show";
+  document.getElementById('content').className = "show vcenter-inner";
   // Hide loader.
   document.getElementById('loader').className = "hide";
 };
